@@ -22,8 +22,6 @@ public class Pessoa {
 
     public Pessoa() {
     }
-    
-    
 
     public Integer getId() {
         return id;
