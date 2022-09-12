@@ -1,7 +1,7 @@
-
 package br.unipar.trabalhobimestral.models.pessoa;
 
 public class Contato {
+
     private int id;
     private String nrTelefone;
     private String email;
@@ -43,5 +43,5 @@ public class Contato {
     public String toString() {
         return "Contato{" + "id=" + id + ", nrTelefone=" + nrTelefone + ", email=" + email + '}';
     }
-    
+
 }
