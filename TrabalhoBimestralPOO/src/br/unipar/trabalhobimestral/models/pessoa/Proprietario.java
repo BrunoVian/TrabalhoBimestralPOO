@@ -5,13 +5,16 @@
  */
 package br.unipar.trabalhobimestral.models.pessoa;
 
-import java.util.Date;
+import br.unipar.trabalhobimestral.models.Animal;
+import java.util.ArrayList;
 
 /**
  *
  * @author bruno
  */
 public class Proprietario extends Pessoa{
+    
+    private ArrayList<Animal> animal = new ArrayList<>(); 
 
     public Proprietario(Integer id, String nome, String cpf, String rg, Endereco endereco, String dataNasc, Contato contato) {
         super(id, nome, cpf, rg, endereco, dataNasc, contato);
@@ -20,6 +23,17 @@ public class Proprietario extends Pessoa{
     public Proprietario() {
     }
 
-  
-    
+    public ArrayList<Animal> getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(ArrayList<Animal> animal) {
+        this.animal = animal;
+    }
+
+    @Override
+    public String toString() {
+        return "Proprietario{" + "animal=" + animal + "Pessoa{" + "id=" + super.getId() + ", nome=" + super.getNome() + ", cpf=" + super.getCpf() + ", rg=" + super.getRg() + ",\nendereco=" + super.getEndereco() + ", \ndataNasc=" + super.getDataNasc() + ", contato=" + super.getContato() + '}';
+    }
+
 }

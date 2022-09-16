@@ -26,7 +26,7 @@ public class MedicoVeterinario extends Pessoa {
 
     @Override
     public String toString() {
-        return "MedicoVeterinario{" + "crmv=" + crmv + "Pessoa{" + "id=" + super.getId() + ", nome=" + super.getNome() + ", cpf=" + super.getCpf() + ", rg=" + super.getRg() + ", endereco=" + super.getEndereco() + ", dataNasc=" + super.getDataNasc() + ", contato=" + super.getContato() + '}';
+        return "MedicoVeterinario{" + "crmv=" + crmv + "Pessoa{" + "id=" + super.getId() + ", nome=" + super.getNome() + ", cpf=" + super.getCpf() + ", rg=" + super.getRg() + ",\nendereco=" + super.getEndereco() + ", \ndataNasc=" + super.getDataNasc() + ", contato=" + super.getContato() + '}';
     }
 
 }
