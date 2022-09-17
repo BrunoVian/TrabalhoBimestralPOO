@@ -2,17 +2,27 @@ package br.unipar.trabalhobimestral.models;
 
 public class Medicamento {
 
+    private Integer id;
     private String nome;
     private String vencimento;
     private Double vlrMedicamento;
 
-    public Medicamento(String nome, String vencimento, Double vlrMedicamento) {
+    public Medicamento(Integer id, String nome, String vencimento, Double vlrMedicamento) {
+        this.id = id;
         this.nome = nome;
         this.vencimento = vencimento;
         this.vlrMedicamento = vlrMedicamento;
     }
 
     public Medicamento() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -41,7 +51,7 @@ public class Medicamento {
 
     @Override
     public String toString() {
-        return "Medicamento{" + "nome=" + nome + ", vencimento=" + vencimento + ", vlrMedicamento=" + vlrMedicamento + '}';
+        return "Medicamento{" + "id=" + id + ", nome=" + nome + ", vencimento=" + vencimento + ", vlrMedicamento=" + vlrMedicamento + '}';
     }
 
 }

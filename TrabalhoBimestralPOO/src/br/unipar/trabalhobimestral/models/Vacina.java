@@ -1,6 +1,8 @@
 package br.unipar.trabalhobimestral.models;
 
 public class Vacina {
+
+    private Integer id;
     private String nome;
     private int diasProxDose;
     private String lote;
@@ -8,10 +10,19 @@ public class Vacina {
     public Vacina() {
     }
 
-    public Vacina(String nome, int diasProxDose, String lote) {
+    public Vacina(Integer id, String nome, int diasProxDose, String lote) {
+        this.id = id;
         this.nome = nome;
         this.diasProxDose = diasProxDose;
         this.lote = lote;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -40,7 +51,7 @@ public class Vacina {
 
     @Override
     public String toString() {
-        return "Vacina{" + "nome=" + nome + ", diasProxDose=" + diasProxDose + ", lote=" + lote + '}';
+        return "Vacina{" + "id=" + id + ", nome=" + nome + ", diasProxDose=" + diasProxDose + ", lote=" + lote + '}';
     }
 
 }

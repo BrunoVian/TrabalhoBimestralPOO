@@ -3,6 +3,7 @@ package br.unipar.trabalhobimestral.models;
 //Controlar os banhos e tosas que cada animal teve e se há algum banho/tosa marcado.
 public class BanhoTosa {
 
+    private Integer id;
     private Animal animal;
     private String dtBanhoTosa;
     private String dtAgendamentoBanhoTosa;
@@ -10,10 +11,19 @@ public class BanhoTosa {
     public BanhoTosa() {
     }
 
-    public BanhoTosa(Animal animal, String dtBanhoTosa, String dtAgendamentoBanhoTosa) {
+    public BanhoTosa(Integer id, Animal animal, String dtBanhoTosa, String dtAgendamentoBanhoTosa) {
+        this.id = id;
         this.animal = animal;
         this.dtBanhoTosa = dtBanhoTosa;
         this.dtAgendamentoBanhoTosa = dtAgendamentoBanhoTosa;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Animal getAnimal() {
@@ -48,13 +58,12 @@ public class BanhoTosa {
         } else {
             agendado = "Há uma agendamento para " + dtAgendamentoBanhoTosa;
         }
-        
         return agendado;
     }
 
     @Override
     public String toString() {
-        return "BanhoTosa{" + "animal=" + animal + ", dtBanhoTosa=" + dtBanhoTosa + ", dtAgendamentoBanhoTosa=" + dtAgendamentoBanhoTosa + '}';
+        return "BanhoTosa{" + "id=" + id + ", animal=" + animal + ", dtBanhoTosa=" + dtBanhoTosa + ", dtAgendamentoBanhoTosa=" + dtAgendamentoBanhoTosa + '}';
     }
 
 }

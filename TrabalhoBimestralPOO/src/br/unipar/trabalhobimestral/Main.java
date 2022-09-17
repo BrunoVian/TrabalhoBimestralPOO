@@ -37,13 +37,13 @@ public class Main {
         System.out.println("\nProprietário criado: " + joaoProp.toString());
 
         //Cadastrado Animais
-        Animal dog = new Animal("Auau", "Macho", 12.80, joaoProp);
+        Animal dog = new Animal(1, "Auau", "Macho", 12.80, joaoProp);
         System.out.println("\nAnimais: " + dog.toString());
-        Animal cat = new Animal("Mimi", "Femea", 8.00, joaoProp);
+        Animal cat = new Animal(2, "Mimi", "Femea", 8.00, joaoProp);
         System.out.println(cat.toString());
 
         //Cadastrado vacina
-        Vacina vacina1 = new Vacina("Vacina 01", 5, "AAABBB");
+        Vacina vacina1 = new Vacina(1, "Vacina 01", 5, "AAABBB");
 
         //Informada Vacinação do Dog
         Vacinacao vacinacaoDog = new Vacinacao();
@@ -52,16 +52,17 @@ public class Main {
         vacinacaoDog.setDataVacina("20/08/2022");
 
         //Cadastrado medicamento
-        Medicamento medicamento1 = new Medicamento("Agrovet", "15/08/2025", 50.00);
-        Medicamento medicamento2 = new Medicamento("Piroxicam", "30/08/2023", 50.00);
-        Medicamento medicamento3 = new Medicamento("Diclofenaco", "06/06/2028", 50.0);
+        Medicamento medicamento1 = new Medicamento(1, "Agrovet", "15/08/2025", 50.00);
+        Medicamento medicamento2 = new Medicamento(2, "Piroxicam", "30/08/2023", 50.00);
+        Medicamento medicamento3 = new Medicamento(3, "Diclofenaco", "06/06/2028", 50.0);
 
         //Cadastado Exames
-        Exame exame1 = new Exame("Raio X", 50.00);
-        Exame exame2 = new Exame("Ressonancia", 50.00);
+        Exame exame1 = new Exame(1, "Raio X", 50.00);
+        Exame exame2 = new Exame(1, "Ressonancia", 50.00);
 
         //Consulta + calculo de valor
         Consulta consultaDog = new Consulta();
+        consultaDog.setId(1);
         consultaDog.setAnimal(dog);
         consultaDog.getListaExame().add(exame1);
         consultaDog.getListaExame().add(exame2);
@@ -71,9 +72,9 @@ public class Main {
         consultaDog.calculaValorConsulta();
 
         //Cadastrado Banho e Tosa
-        BanhoTosa banhoTosaCat = new BanhoTosa(cat, "17/09/2022", "");
+        BanhoTosa banhoTosaCat = new BanhoTosa(1, cat, "17/09/2022", "");
         System.out.println("\nBanho Tosa: " + banhoTosaCat.toString() + banhoTosaCat.AgendadoBanhoTosa());
-        BanhoTosa banhoTosaDog = new BanhoTosa(dog, "15/09/2022", "25/09/2022");
+        BanhoTosa banhoTosaDog = new BanhoTosa(1, dog, "15/09/2022", "25/09/2022");
         System.out.println("\nBanho Tosa: " + banhoTosaDog.toString() + banhoTosaDog.AgendadoBanhoTosa());
 
     }

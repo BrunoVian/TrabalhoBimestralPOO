@@ -6,15 +6,9 @@
 package br.unipar.trabalhobimestral.models.pessoa;
 
 import br.unipar.trabalhobimestral.models.pessoa.endereco.Endereco;
-import br.unipar.trabalhobimestral.models.Animal;
-import java.util.ArrayList;
 
-/**
- *
- * @author bruno
- */
-public class Proprietario extends Pessoa{
-    
+public class Proprietario extends Pessoa {
+
     private boolean clienteEspecial;
 
     public Proprietario(boolean clienteEspecial, Integer id, String nome, String cpf, String rg, Endereco endereco, String dataNasc, Contato contato) {
@@ -25,19 +19,17 @@ public class Proprietario extends Pessoa{
     public Proprietario(boolean clienteEspecial) {
         this.clienteEspecial = clienteEspecial;
     }
-    
+
     public Proprietario() {
     }
 
     @Override
     public String toString() {
-        return "Proprietario{"  + "clienteEspecial=" + clienteEspecial + '}' + "Pessoa{" + "id=" 
-                + super.getId() + ", nome=" + super.getNome() + ", cpf=" 
-                + super.getCpf() + ", rg=" + super.getRg() + ",\nendereco=" 
-                + super.getEndereco() + ", \ndataNasc=" + super.getDataNasc() 
+        return "Proprietario{" + "clienteEspecial=" + clienteEspecial + '}' + "Pessoa{" + "id="
+                + super.getId() + ", nome=" + super.getNome() + ", cpf="
+                + super.getCpf() + ", rg=" + super.getRg() + ",\nendereco="
+                + super.getEndereco() + ", \ndataNasc=" + super.getDataNasc()
                 + ", contato=" + super.getContato() + '}';
     }
-    
 
-    
 }

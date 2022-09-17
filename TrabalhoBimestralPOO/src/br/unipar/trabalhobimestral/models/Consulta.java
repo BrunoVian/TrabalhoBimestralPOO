@@ -3,7 +3,7 @@ package br.unipar.trabalhobimestral.models;
 import java.util.ArrayList;
 
 public class Consulta {
-
+    private Integer id;
     private Animal animal;
     private ArrayList<Medicamento> listaMedicamento = new ArrayList<>();
     private ArrayList<Exame> listaExame = new ArrayList<>();
@@ -31,6 +31,14 @@ public class Consulta {
     }
 
     public Consulta() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Animal getAnimal() {
@@ -83,7 +91,7 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return "Consulta{" + "animal=" + animal + ", listaMedicamento=" + listaMedicamento + ", listaExame=" + listaExame + ", dtConsulta=" + dtConsulta + ", vlrConsulta=" + vlrConsulta + ", vlrTotalConsulta=" + vlrTotalConsulta + '}';
+        return "Consulta{" + "id=" + id + ", animal=" + animal + ", listaMedicamento=" + listaMedicamento + ", listaExame=" + listaExame + ", dtConsulta=" + dtConsulta + ", vlrConsulta=" + vlrConsulta + ", vlrTotalConsulta=" + vlrTotalConsulta + '}';
     }
 
 }

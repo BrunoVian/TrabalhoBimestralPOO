@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Animal {
-
+    private Integer id;
     private String nome;
     private String sexo;
     private Double peso;
@@ -16,11 +16,20 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(String nome, String sexo, Double peso, Proprietario proprietario) {
+    public Animal(Integer id, String nome, String sexo, Double peso, Proprietario proprietario) {
+        this.id = id;
         this.nome = nome;
         this.sexo = sexo;
         this.peso = peso;
         this.proprietario = proprietario;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Double getPeso() {
@@ -75,8 +84,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" + "nome=" + nome + ", sexo=" + sexo + ", peso=" + peso + ", proprietario=" + proprietario + '}';
+        return "Animal{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", peso=" + peso + ", proprietario=" + proprietario + '}';
     }
-
 
 }

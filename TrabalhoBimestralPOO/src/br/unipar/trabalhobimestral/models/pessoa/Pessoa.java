@@ -3,7 +3,7 @@ package br.unipar.trabalhobimestral.models.pessoa;
 import br.unipar.trabalhobimestral.models.pessoa.endereco.Endereco;
 
 public class Pessoa {
-    
+
     private Integer id;
     private String nome;
     private String cpf;
@@ -83,7 +83,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", \nendereco=" + endereco + ", \ndataNasc=" + dataNasc + ", contato=" + contato + '}';
+        return "Pessoa: " + "\nId: " + id + "\nNome: " + nome + "\nCPF: " + cpf + ", rg=" + rg + "\nEndereço" + endereco + "\nData de Nascimento: " + dataNasc + "\nContato" + contato;
     }
 
 }

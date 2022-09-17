@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Vacinacao {
 
+    private Integer id;
     private Animal animal;
     private Vacina vacina;
     private String dataVacina;
@@ -12,10 +13,19 @@ public class Vacinacao {
     public Vacinacao() {
     }
 
-    public Vacinacao(Animal animal, Vacina vacina, String dataVacina) {
+    public Vacinacao(Integer id, Animal animal, Vacina vacina, String dataVacina) {
+        this.id = id;
         this.animal = animal;
         this.vacina = vacina;
         this.dataVacina = dataVacina;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Animal getAnimal() {
@@ -42,10 +52,9 @@ public class Vacinacao {
         this.dataVacina = dataVacina;
     }
 
-   
     @Override
     public String toString() {
-        return "Vacinacao{" + "animal=" + animal + ", vacina=" + vacina + ", dataVacina=" + dataVacina + '}';
+        return "Vacinacao{" + "id=" + id + ", animal=" + animal + ", vacina=" + vacina + ", dataVacina=" + dataVacina + '}';
     }
 
 }
