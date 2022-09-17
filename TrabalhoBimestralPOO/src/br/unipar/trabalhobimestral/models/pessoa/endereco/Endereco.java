@@ -1,4 +1,4 @@
-package br.unipar.trabalhobimestral.models.pessoa;
+package br.unipar.trabalhobimestral.models.pessoa.endereco;
 
 public class Endereco {
 

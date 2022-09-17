@@ -1,5 +1,7 @@
 package br.unipar.trabalhobimestral.models.pessoa;
 
+import br.unipar.trabalhobimestral.models.pessoa.endereco.Endereco;
+
 public class Pessoa {
     
     private Integer id;

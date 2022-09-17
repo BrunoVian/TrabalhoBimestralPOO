@@ -5,6 +5,7 @@
  */
 package br.unipar.trabalhobimestral.models.pessoa;
 
+import br.unipar.trabalhobimestral.models.pessoa.endereco.Endereco;
 import br.unipar.trabalhobimestral.models.Animal;
 import java.util.ArrayList;
 
@@ -33,7 +34,11 @@ public class Proprietario extends Pessoa{
 
     @Override
     public String toString() {
-        return "Proprietario{" + "animal=" + animal + "Pessoa{" + "id=" + super.getId() + ", nome=" + super.getNome() + ", cpf=" + super.getCpf() + ", rg=" + super.getRg() + ",\nendereco=" + super.getEndereco() + ", \ndataNasc=" + super.getDataNasc() + ", contato=" + super.getContato() + '}';
+        return "Proprietario{" + "animal=" + animal + "Pessoa{" + "id=" 
+                + super.getId() + ", nome=" + super.getNome() + ", cpf=" 
+                + super.getCpf() + ", rg=" + super.getRg() + ",\nendereco=" 
+                + super.getEndereco() + ", \ndataNasc=" + super.getDataNasc() 
+                + ", contato=" + super.getContato() + '}';
     }
 
 }
