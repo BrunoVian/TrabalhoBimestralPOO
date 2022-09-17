@@ -8,12 +8,26 @@ public class Consulta {
     private ArrayList<Medicamento> listaMedicamento = new ArrayList<>();
     private ArrayList<Exame> listaExame = new ArrayList<>();
     private String dtConsulta;
-    private Double vlrTotal;
+    private Double vlrConsulta;
+    private Double vlrTotalConsulta;
 
-    public Consulta(Animal animal, String dtConsulta, Double vlrTotal) {
-        this.animal = animal;
-        this.dtConsulta = dtConsulta;
-        this.vlrTotal = vlrTotal;
+    public void calculaValorConsulta() {
+        Double vlrTotal = 0.0;
+        Double vlrMedicamento = 0.0;
+        Double vlrExame = 0.0;
+
+        for (int i = 0; i < listaMedicamento.size(); i++) {
+            vlrMedicamento = vlrMedicamento + listaMedicamento.get(i).getVlrMedicamento();
+        }
+
+        for (int i = 0; i < listaExame.size(); i++) {
+            vlrExame = vlrExame + listaExame.get(i).getVlrExame();
+        }
+
+        vlrTotal = vlrExame + vlrMedicamento + vlrConsulta;
+
+        System.out.println("Valor total: " + vlrTotal);
+
     }
 
     public Consulta() {
@@ -43,17 +57,35 @@ public class Consulta {
         this.listaExame = listaExame;
     }
 
-    public Double getVlrTotal() {
-        return vlrTotal;
+    public String getDtConsulta() {
+        return dtConsulta;
     }
 
-    public void setVlrTotal(Double vlrTotal) {
-        this.vlrTotal = vlrTotal;
+    public void setDtConsulta(String dtConsulta) {
+        this.dtConsulta = dtConsulta;
+    }
+
+    public Double getVlrConsulta() {
+        return vlrConsulta;
+    }
+
+    public void setVlrConsulta(Double vlrConsulta) {
+        this.vlrConsulta = vlrConsulta;
+    }
+
+
+
+    public Double getVlrTotalConsulta() {
+        return vlrTotalConsulta;
+    }
+
+    public void setVlrTotalConsulta(Double vlrTotalConsulta) {
+        this.vlrTotalConsulta = vlrTotalConsulta;
     }
 
     @Override
     public String toString() {
-        return "Consulta{" + "animal=" + animal + ", listaMedicamento=" + listaMedicamento + ", listaExame=" + listaExame + ", dtConsulta=" + dtConsulta + ", vlrTotal=" + vlrTotal + '}';
+        return "Consulta{" + "animal=" + animal + ", listaMedicamento=" + listaMedicamento + ", listaExame=" + listaExame + ", dtConsulta=" + dtConsulta + ", vlrConsulta=" + vlrConsulta + ", vlrTotalConsulta=" + vlrTotalConsulta + '}';
     }
 
 }

@@ -1,6 +1,7 @@
 package br.unipar.trabalhobimestral;
 
 import br.unipar.trabalhobimestral.models.Animal;
+import br.unipar.trabalhobimestral.models.Consulta;
 import br.unipar.trabalhobimestral.models.Exame;
 import br.unipar.trabalhobimestral.models.Medicamento;
 import br.unipar.trabalhobimestral.models.Vacina;
@@ -56,12 +57,22 @@ public class Main {
 
         //Cadastrado medicamento
         Medicamento medicamento1 = new Medicamento("Agrovet", "15/08/2025", 50.00);
-        Medicamento medicamento2 = new Medicamento("Piroxicam", "30/08/2023", 25.50);
-        Medicamento medicamento3 = new Medicamento("Diclofenaco", "06/06/2028", 25.50);
+        Medicamento medicamento2 = new Medicamento("Piroxicam", "30/08/2023", 50.00);
+        Medicamento medicamento3 = new Medicamento("Diclofenaco", "06/06/2028", 50.0);
 
         //Cadastado Exames
-        Exame exame1 = new Exame("Raio X", 80.00);
-        Exame exame2 = new Exame("Ressonancia", 120.00);
+        Exame exame1 = new Exame("Raio X", 50.00);
+        Exame exame2 = new Exame("Ressonancia", 50.00);
+        
+        //Consulta + calculo de valor
+        Consulta consultaDog = new Consulta();
+        consultaDog.setAnimal(dog);
+        consultaDog.getListaExame().add(exame1);
+        consultaDog.getListaExame().add(exame2);
+        consultaDog.getListaMedicamento().add(medicamento1);
+        consultaDog.setVlrConsulta(150.00);
+        consultaDog.calculaValorConsulta();
+        
         
         System.out.println("Veterinário criado: " + felipeVet.toString());
         System.out.println("\nProprietário criado: " + joaoProp.toString());
