@@ -15,30 +15,29 @@ import java.util.ArrayList;
  */
 public class Proprietario extends Pessoa{
     
-    private ArrayList<Animal> animal = new ArrayList<>(); 
+    private boolean clienteEspecial;
 
-    public Proprietario(Integer id, String nome, String cpf, String rg, Endereco endereco, String dataNasc, Contato contato) {
+    public Proprietario(boolean clienteEspecial, Integer id, String nome, String cpf, String rg, Endereco endereco, String dataNasc, Contato contato) {
         super(id, nome, cpf, rg, endereco, dataNasc, contato);
+        this.clienteEspecial = clienteEspecial;
     }
 
+    public Proprietario(boolean clienteEspecial) {
+        this.clienteEspecial = clienteEspecial;
+    }
+    
     public Proprietario() {
-    }
-
-    public ArrayList<Animal> getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(ArrayList<Animal> animal) {
-        this.animal = animal;
     }
 
     @Override
     public String toString() {
-        return "Proprietario{" + "animal=" + animal + "Pessoa{" + "id=" 
+        return "Proprietario{"  + "clienteEspecial=" + clienteEspecial + '}' + "Pessoa{" + "id=" 
                 + super.getId() + ", nome=" + super.getNome() + ", cpf=" 
                 + super.getCpf() + ", rg=" + super.getRg() + ",\nendereco=" 
                 + super.getEndereco() + ", \ndataNasc=" + super.getDataNasc() 
                 + ", contato=" + super.getContato() + '}';
     }
+    
 
+    
 }

@@ -26,7 +26,7 @@ public class Consulta {
 
         vlrTotal = vlrExame + vlrMedicamento + vlrConsulta;
 
-        System.out.println("Valor total: " + vlrTotal);
+        System.out.println("Valor total da consulta: " + vlrTotal);
 
     }
 
@@ -72,8 +72,6 @@ public class Consulta {
     public void setVlrConsulta(Double vlrConsulta) {
         this.vlrConsulta = vlrConsulta;
     }
-
-
 
     public Double getVlrTotalConsulta() {
         return vlrTotalConsulta;

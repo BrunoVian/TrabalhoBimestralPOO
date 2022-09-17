@@ -1,5 +1,6 @@
 package br.unipar.trabalhobimestral.models;
 
+import br.unipar.trabalhobimestral.models.pessoa.Proprietario;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,13 +10,33 @@ public class Animal {
 
     private String nome;
     private String sexo;
+    private Double peso;
+    private Proprietario proprietario;
 
     public Animal() {
     }
 
-    public Animal(String nome, String sexo) {
+    public Animal(String nome, String sexo, Double peso, Proprietario proprietario) {
         this.nome = nome;
         this.sexo = sexo;
+        this.peso = peso;
+        this.proprietario = proprietario;
+    }
+
+    public Double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
+    }
+
+    public Proprietario getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Proprietario proprietario) {
+        this.proprietario = proprietario;
     }
 
     public String getNome() {
@@ -35,14 +56,18 @@ public class Animal {
     }
 
     public static void segundaDose(Vacina vacina) {
-        
+
     }
 
     public static void calculaProximaDose(Vacinacao vacinacao) throws ParseException {
-        Date proximaVacinacao;
+        Date proximaVacinacao = new Date();
 
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date ultimaVacina = formato.parse(vacinacao.getDataVacina());
+
+        proximaVacinacao.setDate(proximaVacinacao.getDate() + 10);
+
+        System.out.println("Daqui há dez dias: " + formato.format(proximaVacinacao));
 
         int dias = vacinacao.getVacina().getDiasProxDose();
         System.out.println(dias);
@@ -50,6 +75,8 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" + "nome=" + nome + ", sexo=" + sexo + '}';
+        return "Animal{" + "nome=" + nome + ", sexo=" + sexo + ", peso=" + peso + ", proprietario=" + proprietario + '}';
     }
+
+
 }

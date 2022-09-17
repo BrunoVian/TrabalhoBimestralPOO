@@ -1,6 +1,7 @@
 package br.unipar.trabalhobimestral;
 
 import br.unipar.trabalhobimestral.models.Animal;
+import br.unipar.trabalhobimestral.models.BanhoTosa;
 import br.unipar.trabalhobimestral.models.Consulta;
 import br.unipar.trabalhobimestral.models.Exame;
 import br.unipar.trabalhobimestral.models.Medicamento;
@@ -27,20 +28,19 @@ public class Main {
         Endereco enderecoVet = new Endereco(1, "Av Teste", 123, "Ap000", toledo, "85900000");
         Contato contatoVet = new Contato(1, "45000000000", "felipe.leite@edu.unipar.br");
         MedicoVeterinario felipeVet = new MedicoVeterinario("1234", 1, "Felipe Leite", "1234567890", "987654321", enderecoVet, "01/01/01", contatoVet);
+        System.out.println("Veterinário criado: " + felipeVet.toString());
 
         //Cadastrado Proprietário
         Endereco enderecoProp = new Endereco(1, "Av teste", 1234, "Teste", toledo, "85900000");
         Contato contatoProp = new Contato(1, "45000000000", "teste@edu.unipar.br");
-        Proprietario joaoProp = new Proprietario(1, "João Teste", "123456789", "987654321", enderecoProp, "Teste", contatoProp);
+        Proprietario joaoProp = new Proprietario(false, 1, "João Teste", "123456789", "987654321", enderecoProp, "Teste", contatoProp);
+        System.out.println("\nProprietário criado: " + joaoProp.toString());
 
-        //Cadastrado Animal
-        Animal dog = new Animal();
-        dog.setNome("AuAu");
-        dog.setSexo("Macho");
-
-        Animal cat = new Animal();
-        cat.setNome("Mimi");
-        cat.setSexo("Femea");
+        //Cadastrado Animais
+        Animal dog = new Animal("Auau", "Macho", 12.80, joaoProp);
+        System.out.println("\nAnimais: " + dog.toString());
+        Animal cat = new Animal("Mimi", "Femea", 8.00, joaoProp);
+        System.out.println(cat.toString());
 
         //Cadastrado vacina
         Vacina vacina1 = new Vacina("Vacina 01", 5, "AAABBB");
@@ -51,10 +51,6 @@ public class Main {
         vacinacaoDog.setVacina(vacina1);
         vacinacaoDog.setDataVacina("20/08/2022");
 
-        //Vinculado animal ao proprietario
-        joaoProp.getAnimal().add(dog);
-        joaoProp.getAnimal().add(cat);
-
         //Cadastrado medicamento
         Medicamento medicamento1 = new Medicamento("Agrovet", "15/08/2025", 50.00);
         Medicamento medicamento2 = new Medicamento("Piroxicam", "30/08/2023", 50.00);
@@ -63,7 +59,7 @@ public class Main {
         //Cadastado Exames
         Exame exame1 = new Exame("Raio X", 50.00);
         Exame exame2 = new Exame("Ressonancia", 50.00);
-        
+
         //Consulta + calculo de valor
         Consulta consultaDog = new Consulta();
         consultaDog.setAnimal(dog);
@@ -71,11 +67,14 @@ public class Main {
         consultaDog.getListaExame().add(exame2);
         consultaDog.getListaMedicamento().add(medicamento1);
         consultaDog.setVlrConsulta(150.00);
+        System.out.println("\nConsulta: " + consultaDog.toString());
         consultaDog.calculaValorConsulta();
-        
-        
-        System.out.println("Veterinário criado: " + felipeVet.toString());
-        System.out.println("\nProprietário criado: " + joaoProp.toString());
+
+        //Cadastrado Banho e Tosa
+        BanhoTosa banhoTosaCat = new BanhoTosa(cat, "17/09/2022", "");
+        System.out.println("\nBanho Tosa: " + banhoTosaCat.toString() + banhoTosaCat.AgendadoBanhoTosa());
+        BanhoTosa banhoTosaDog = new BanhoTosa(dog, "15/09/2022", "25/09/2022");
+        System.out.println("\nBanho Tosa: " + banhoTosaDog.toString() + banhoTosaDog.AgendadoBanhoTosa());
 
     }
 }
