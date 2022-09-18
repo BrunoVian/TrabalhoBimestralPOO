@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Animal {
+
     private Integer id;
     private String nome;
     private String sexo;
@@ -69,17 +70,18 @@ public class Animal {
     }
 
     public static void calculaProximaDose(Vacinacao vacinacao) throws ParseException {
-        Date proximaVacinacao = new Date();
-
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date ultimaVacina = formato.parse(vacinacao.getDataVacina());
 
-        proximaVacinacao.setDate(proximaVacinacao.getDate() + 10);
-
-        System.out.println("Daqui há dez dias: " + formato.format(proximaVacinacao));
-
         int dias = vacinacao.getVacina().getDiasProxDose();
-        System.out.println(dias);
+
+        Date proximaVacina = ultimaVacina;
+        Calendar c = Calendar.getInstance();
+        c.setTime(proximaVacina);
+
+        c.add(Calendar.DAY_OF_YEAR, dias);
+        System.out.println("A segunda dose da vacina: " + vacinacao.getVacina().getNome() 
+                + " será em " + formato.format(c.getTime()));
     }
 
     @Override

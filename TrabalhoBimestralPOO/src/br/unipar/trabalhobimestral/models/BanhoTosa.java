@@ -7,15 +7,19 @@ public class BanhoTosa {
     private Animal animal;
     private String dtBanhoTosa;
     private String dtAgendamentoBanhoTosa;
+    private boolean banho;
+    private boolean tosa;
 
     public BanhoTosa() {
     }
 
-    public BanhoTosa(Integer id, Animal animal, String dtBanhoTosa, String dtAgendamentoBanhoTosa) {
+    public BanhoTosa(Integer id, Animal animal, String dtBanhoTosa, String dtAgendamentoBanhoTosa, boolean banho, boolean tosa) {
         this.id = id;
         this.animal = animal;
         this.dtBanhoTosa = dtBanhoTosa;
         this.dtAgendamentoBanhoTosa = dtAgendamentoBanhoTosa;
+        this.banho = banho;
+        this.tosa = tosa;
     }
 
     public Integer getId() {
@@ -50,6 +54,22 @@ public class BanhoTosa {
         this.dtAgendamentoBanhoTosa = dtAgendamentoBanhoTosa;
     }
 
+    public boolean isBanho() {
+        return banho;
+    }
+
+    public void setBanho(boolean banho) {
+        this.banho = banho;
+    }
+
+    public boolean isTosa() {
+        return tosa;
+    }
+
+    public void setTosa(boolean tosa) {
+        this.tosa = tosa;
+    }
+
     public String AgendadoBanhoTosa() {
         String agendado;
 
@@ -63,7 +83,8 @@ public class BanhoTosa {
 
     @Override
     public String toString() {
-        return "BanhoTosa{" + "id=" + id + ", animal=" + animal + ", dtBanhoTosa=" + dtBanhoTosa + ", dtAgendamentoBanhoTosa=" + dtAgendamentoBanhoTosa + '}';
+        return "BanhoTosa{" + "id=" + id + ", animal=" + animal + ", dtBanhoTosa=" + dtBanhoTosa + ", dtAgendamentoBanhoTosa=" + dtAgendamentoBanhoTosa + ", banho=" + banho + ", tosa=" + tosa + '}';
     }
 
+    
 }

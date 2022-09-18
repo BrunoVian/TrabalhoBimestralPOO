@@ -37,5 +37,10 @@ public class Exame {
     public void setVlrExame(Double vlrExame) {
         this.vlrExame = vlrExame;
     }
+
+    @Override
+    public String toString() {
+        return "Exame{" + "id=" + id + ", nome=" + nome + ", vlrExame=" + vlrExame + '}';
+    }
    
 }

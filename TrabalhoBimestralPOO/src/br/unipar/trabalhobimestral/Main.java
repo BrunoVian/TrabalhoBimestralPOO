@@ -14,10 +14,11 @@ import br.unipar.trabalhobimestral.models.pessoa.endereco.Estado;
 import br.unipar.trabalhobimestral.models.pessoa.MedicoVeterinario;
 import br.unipar.trabalhobimestral.models.pessoa.endereco.Pais;
 import br.unipar.trabalhobimestral.models.pessoa.Proprietario;
+import java.text.ParseException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         //Cadastrado Cidade, Estado e País
         Pais brasil = new Pais(1, "Brasil");
@@ -26,56 +27,55 @@ public class Main {
 
         //Cadastrado Veterinário  
         Endereco enderecoVet = new Endereco(1, "Av Teste", 123, "Ap000", toledo, "85900000");
-        Contato contatoVet = new Contato(1, "45000000000", "felipe.leite@edu.unipar.br");
-        MedicoVeterinario felipeVet = new MedicoVeterinario("1234", 1, "Felipe Leite", "1234567890", "987654321", enderecoVet, "01/01/01", contatoVet);
-        System.out.println("Veterinário criado: " + felipeVet.toString());
+        Contato contatoVet = new Contato(1, "(45)99999-9999", "medico.vet@edu.unipar.br");
+        MedicoVeterinario felipeVet = new MedicoVeterinario("1234", 1, "Felipe Leite", "123.456.789-00", "987654321", enderecoVet, "01/01/01", contatoVet);
+        System.out.println("Veterinário criado:\n" + felipeVet.toString());
 
         //Cadastrado Proprietário
-        Endereco enderecoProp = new Endereco(1, "Av teste", 1234, "Teste", toledo, "85900000");
-        Contato contatoProp = new Contato(1, "45000000000", "teste@edu.unipar.br");
-        Proprietario joaoProp = new Proprietario(false, 1, "João Teste", "123456789", "987654321", enderecoProp, "Teste", contatoProp);
-        System.out.println("\nProprietário criado: " + joaoProp.toString());
+        Endereco enderecoProp = new Endereco(1, "Av teste", 321, "Teste", toledo, "85900000");
+        Contato contatoProp = new Contato(1, "(45)98888-8888", "teste@edu.unipar.br");
+        Proprietario joaoProp = new Proprietario(false, 1, "João Teste", "321.456.987-12", "987654321", enderecoProp, "Teste", contatoProp);
+        System.out.println("\nProprietário criado:\n" + joaoProp.toString());
 
         //Cadastrado Animais
         Animal dog = new Animal(1, "Auau", "Macho", 12.80, joaoProp);
-        System.out.println("\nAnimais: " + dog.toString());
+        System.out.println("\nAnimais:\n" + dog.toString());
         Animal cat = new Animal(2, "Mimi", "Femea", 8.00, joaoProp);
-        System.out.println(cat.toString());
+        System.out.println("\n" + cat.toString());
 
         //Cadastrado vacina
-        Vacina vacina1 = new Vacina(1, "Vacina 01", 5, "AAABBB");
+        Vacina raiva = new Vacina(1, "Raiva", 10, "A5A48B");
+        System.out.println("\n" + raiva.toString());
 
         //Informada Vacinação do Dog
-        Vacinacao vacinacaoDog = new Vacinacao();
-        vacinacaoDog.setAnimal(dog);
-        vacinacaoDog.setVacina(vacina1);
-        vacinacaoDog.setDataVacina("20/08/2022");
+        Vacinacao vacinacaoDog = new Vacinacao(1, dog, raiva, "20/08/2022");
+        System.out.println("\n" + vacinacaoDog.toString());
+
+        //Calcula data da próxima vacina
+        Animal.calculaProximaDose(vacinacaoDog);
 
         //Cadastrado medicamento
-        Medicamento medicamento1 = new Medicamento(1, "Agrovet", "15/08/2025", 50.00);
-        Medicamento medicamento2 = new Medicamento(2, "Piroxicam", "30/08/2023", 50.00);
-        Medicamento medicamento3 = new Medicamento(3, "Diclofenaco", "06/06/2028", 50.0);
+        Medicamento medicamento1 = new Medicamento(1, "Diclofenco", "15/08/2025", 100.00);
+        System.out.println("\n" + medicamento1.toString());
 
         //Cadastado Exames
-        Exame exame1 = new Exame(1, "Raio X", 50.00);
-        Exame exame2 = new Exame(1, "Ressonancia", 50.00);
+        Exame exame1 = new Exame(1, "Raio X", 180.00);
+        Exame exame2 = new Exame(1, "Ressonancia", 300.50);
 
-        //Consulta + calculo de valor
-        Consulta consultaDog = new Consulta();
-        consultaDog.setId(1);
-        consultaDog.setAnimal(dog);
+        //Consulta
+        Consulta consultaDog = new Consulta(1, dog, "18/09/2022");
         consultaDog.getListaExame().add(exame1);
         consultaDog.getListaExame().add(exame2);
         consultaDog.getListaMedicamento().add(medicamento1);
         consultaDog.setVlrConsulta(150.00);
-        System.out.println("\nConsulta: " + consultaDog.toString());
+        System.out.println("\nConsulta:\n" + consultaDog.toString());
         consultaDog.calculaValorConsulta();
 
         //Cadastrado Banho e Tosa
-        BanhoTosa banhoTosaCat = new BanhoTosa(1, cat, "17/09/2022", "");
-        System.out.println("\nBanho Tosa: " + banhoTosaCat.toString() + banhoTosaCat.AgendadoBanhoTosa());
-        BanhoTosa banhoTosaDog = new BanhoTosa(1, dog, "15/09/2022", "25/09/2022");
-        System.out.println("\nBanho Tosa: " + banhoTosaDog.toString() + banhoTosaDog.AgendadoBanhoTosa());
+        BanhoTosa banhoTosaCat = new BanhoTosa(1, cat, "17/09/2022", "", true, false);
+        System.out.println("\nBanho Tosa:\n" + banhoTosaCat.toString() + banhoTosaCat.AgendadoBanhoTosa());
+        BanhoTosa banhoTosaDog = new BanhoTosa(1, dog, "15/09/2022", "25/09/2022", true, true);
+        System.out.println("\n" + banhoTosaDog.toString() + banhoTosaDog.AgendadoBanhoTosa());
 
     }
 }

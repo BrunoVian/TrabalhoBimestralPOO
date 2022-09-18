@@ -26,11 +26,17 @@ public class Consulta {
 
         vlrTotal = vlrExame + vlrMedicamento + vlrConsulta;
 
-        System.out.println("Valor total da consulta: " + vlrTotal);
+        System.out.println("Valor total da consulta: R$ " + vlrTotal);
 
     }
 
     public Consulta() {
+    }
+
+    public Consulta(Integer id, Animal animal, String dtConsulta) {
+        this.id = id;
+        this.animal = animal;
+        this.dtConsulta = dtConsulta;
     }
 
     public Integer getId() {
