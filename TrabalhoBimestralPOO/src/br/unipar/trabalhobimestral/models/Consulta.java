@@ -3,6 +3,7 @@ package br.unipar.trabalhobimestral.models;
 import java.util.ArrayList;
 
 public class Consulta {
+
     private Integer id;
     private Animal animal;
     private ArrayList<Medicamento> listaMedicamento = new ArrayList<>();
@@ -12,7 +13,7 @@ public class Consulta {
     private Double vlrTotalConsulta;
 
     public void calculaValorConsulta() {
-        Double vlrTotal = 0.0;
+        Double vlrTotal;
         Double vlrMedicamento = 0.0;
         Double vlrExame = 0.0;
 
@@ -26,8 +27,10 @@ public class Consulta {
 
         vlrTotal = vlrExame + vlrMedicamento + vlrConsulta;
 
+        System.out.println("\nValor do(s) exames: R$ " + vlrExame);
+        System.out.println("Valor do(s) medicamentos: R$ " + vlrMedicamento);
+        System.out.println("Valor da consulta: R$ " + vlrConsulta);
         System.out.println("Valor total da consulta: R$ " + vlrTotal);
-
     }
 
     public Consulta() {
@@ -97,7 +100,9 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return "Consulta{" + "id=" + id + ", animal=" + animal + ", listaMedicamento=" + listaMedicamento + ", listaExame=" + listaExame + ", dtConsulta=" + dtConsulta + ", vlrConsulta=" + vlrConsulta + ", vlrTotalConsulta=" + vlrTotalConsulta + '}';
+        return "Consulta{" + "id=" + id + ", animal=" + animal + ", listaMedicamento=" + listaMedicamento 
+                + "\nlistaExame=" + listaExame + ", dtConsulta=" + dtConsulta + ", vlrConsulta=" + vlrConsulta 
+                + ", vlrTotalConsulta=" + vlrTotalConsulta + '}';
     }
 
 }

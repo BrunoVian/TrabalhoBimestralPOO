@@ -5,8 +5,10 @@ import br.unipar.trabalhobimestral.models.BanhoTosa;
 import br.unipar.trabalhobimestral.models.Consulta;
 import br.unipar.trabalhobimestral.models.Exame;
 import br.unipar.trabalhobimestral.models.Medicamento;
+import br.unipar.trabalhobimestral.models.PorteAnimalEnum;
 import br.unipar.trabalhobimestral.models.Vacina;
 import br.unipar.trabalhobimestral.models.Vacinacao;
+import br.unipar.trabalhobimestral.models.VacinacaoAnimalEnum;
 import br.unipar.trabalhobimestral.models.pessoa.endereco.Cidade;
 import br.unipar.trabalhobimestral.models.pessoa.Contato;
 import br.unipar.trabalhobimestral.models.pessoa.endereco.Endereco;
@@ -25,6 +27,8 @@ public class Main {
         Estado parana = new Estado(1, "Parana", brasil);
         Cidade toledo = new Cidade(1, "Toledo", parana);
 
+        System.out.println("Pessoas:");
+
         //Cadastrado Veterinário  
         Endereco enderecoVet = new Endereco(1, "Av Teste", 123, "Ap000", toledo, "85900000");
         Contato contatoVet = new Contato(1, "(45)99999-9999", "medico.vet@edu.unipar.br");
@@ -36,16 +40,29 @@ public class Main {
         Contato contatoProp = new Contato(1, "(45)98888-8888", "teste@edu.unipar.br");
         Proprietario joaoProp = new Proprietario(false, 1, "João Teste", "321.456.987-12", "987654321", enderecoProp, "Teste", contatoProp);
         System.out.println("\nProprietário criado:\n" + joaoProp.toString());
+        System.out.println("\n----------------------------------------------");
 
         //Cadastrado Animais
-        Animal dog = new Animal(1, "Auau", "Macho", 12.80, joaoProp);
+        Animal dog = new Animal(1, "Auau", "Macho", 15.80, joaoProp, PorteAnimalEnum.MEDIO, VacinacaoAnimalEnum.EMDIA);
         System.out.println("\nAnimais:\n" + dog.toString());
-        Animal cat = new Animal(2, "Mimi", "Femea", 8.00, joaoProp);
+        Animal cat = new Animal(2, "Mimi", "Femea", 8.00, joaoProp, PorteAnimalEnum.PEQUENO, VacinacaoAnimalEnum.ATRASO);
         System.out.println("\n" + cat.toString());
+        System.out.println("\n----------------------------------------------");
 
         //Cadastrado vacina
         Vacina raiva = new Vacina(1, "Raiva", 10, "A5A48B");
         System.out.println("\n" + raiva.toString());
+
+        //Cadastrado medicamento
+        Medicamento medicamento1 = new Medicamento(1, "Diclofenaco", "15/08/2025", 100.00);
+        System.out.println("\n" + medicamento1.toString());
+
+        //Cadastado Exames
+        Exame exame1 = new Exame(1, "Raio X", 180.00);
+        System.out.println("\n" + exame1.toString());
+        Exame exame2 = new Exame(2, "Ressonancia", 300.50);
+        System.out.println(exame2.toString());
+        System.out.println("\n----------------------------------------------");
 
         //Informada Vacinação do Dog
         Vacinacao vacinacaoDog = new Vacinacao(1, dog, raiva, "20/08/2022");
@@ -53,14 +70,7 @@ public class Main {
 
         //Calcula data da próxima vacina
         Animal.calculaProximaDose(vacinacaoDog);
-
-        //Cadastrado medicamento
-        Medicamento medicamento1 = new Medicamento(1, "Diclofenco", "15/08/2025", 100.00);
-        System.out.println("\n" + medicamento1.toString());
-
-        //Cadastado Exames
-        Exame exame1 = new Exame(1, "Raio X", 180.00);
-        Exame exame2 = new Exame(1, "Ressonancia", 300.50);
+        System.out.println("\n----------------------------------------------");
 
         //Consulta
         Consulta consultaDog = new Consulta(1, dog, "18/09/2022");
@@ -70,10 +80,11 @@ public class Main {
         consultaDog.setVlrConsulta(150.00);
         System.out.println("\nConsulta:\n" + consultaDog.toString());
         consultaDog.calculaValorConsulta();
+        System.out.println("\n----------------------------------------------");
 
         //Cadastrado Banho e Tosa
         BanhoTosa banhoTosaCat = new BanhoTosa(1, cat, "17/09/2022", "", true, false);
-        System.out.println("\nBanho Tosa:\n" + banhoTosaCat.toString() + banhoTosaCat.AgendadoBanhoTosa());
+        System.out.println("\nBanho e Tosa:\n" + banhoTosaCat.toString() + banhoTosaCat.AgendadoBanhoTosa());
         BanhoTosa banhoTosaDog = new BanhoTosa(1, dog, "15/09/2022", "25/09/2022", true, true);
         System.out.println("\n" + banhoTosaDog.toString() + banhoTosaDog.AgendadoBanhoTosa());
 

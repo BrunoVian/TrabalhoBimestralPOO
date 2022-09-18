@@ -74,16 +74,18 @@ public class BanhoTosa {
         String agendado;
 
         if ("".equals(dtAgendamentoBanhoTosa)) {
-            agendado = "Não há agendamentos para o animal";
+            agendado = "\nNão há agendamentos de banho e/ou tosa para o animal";
         } else {
-            agendado = "Há uma agendamento para " + dtAgendamentoBanhoTosa;
+            agendado = "\nHá uma agendamentos de banho e/ou tosa para " + dtAgendamentoBanhoTosa;
         }
         return agendado;
     }
 
     @Override
     public String toString() {
-        return "BanhoTosa{" + "id=" + id + ", animal=" + animal + ", dtBanhoTosa=" + dtBanhoTosa + ", dtAgendamentoBanhoTosa=" + dtAgendamentoBanhoTosa + ", banho=" + banho + ", tosa=" + tosa + '}';
+        return "BanhoTosa{" + "id=" + id + ", animal=" + animal + "\ndtBanhoTosa=" 
+                + dtBanhoTosa + ", dtAgendamentoBanhoTosa=" + dtAgendamentoBanhoTosa 
+                + ", banho=" + banho + ", tosa=" + tosa + '}';
     }
 
     

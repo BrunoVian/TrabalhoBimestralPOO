@@ -2,7 +2,7 @@ package br.unipar.trabalhobimestral.models.pessoa;
 
 import br.unipar.trabalhobimestral.models.pessoa.endereco.Endereco;
 
-public class Pessoa {
+public abstract class Pessoa {
 
     private Integer id;
     private String nome;
