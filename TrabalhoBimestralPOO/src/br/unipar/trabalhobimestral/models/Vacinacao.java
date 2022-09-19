@@ -54,7 +54,8 @@ public class Vacinacao {
 
     @Override
     public String toString() {
-        return "Vacinacao{" + "id=" + id + ", animal=" + animal + ", vacina=" + vacina + ", dataVacina=" + dataVacina + '}';
+        return "Vacinacao{" + "id=" + id + ", animal=" + animal + "\nvacina=" 
+                + vacina + ", dataVacina=" + dataVacina + '}';
     }
 
 }

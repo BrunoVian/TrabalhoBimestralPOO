@@ -100,7 +100,7 @@ public class Animal {
         c.setTime(proximaVacina);
 
         c.add(Calendar.DAY_OF_YEAR, diasProxDose);
-        System.out.println("A segunda dose do animal " + vacinacao.getAnimal().getNome() + ", da vacina de " + vacinacao.getVacina().getNome()
+        System.out.println("\nA segunda dose do animal " + vacinacao.getAnimal().getNome() + ", da vacina de " + vacinacao.getVacina().getNome()
                 + " será em " + formato.format(c.getTime()));
     }
 
